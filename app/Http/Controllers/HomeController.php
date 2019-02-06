@@ -10,6 +10,19 @@ class HomeController extends Controller
 		$this->middleware('auth');
 	}
 
+	/*
+     * @function checkAuthDetails
+     * 
+     * redirect if authenticated
+     * 
+     * @param - null
+     * 
+     * @author
+     * 
+     * Amjad Ali
+     * 
+     */
+
 	public function checkAuthDetails() {
         if(Auth::check()) {
 
@@ -20,6 +33,23 @@ class HomeController extends Controller
             return view('auth.login');
         }
     }
+
+    /*
+     * @function dashboard
+     * 
+     * show dashboard details
+     * 
+     * @param - null
+     * 
+     * 
+     * @return 
+     * view
+     * 
+     * @author
+     * 
+     * Amjad Ali
+     * 
+     */
 
 	public function dashboard() {
 		$availableRoles = DB::table('available_roles')

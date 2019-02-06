@@ -43,6 +43,23 @@ class DoctorController extends Controller
         ]);
     }
 
+    /*
+     * @function updateDetails
+     * 
+     * update doctor details
+     * 
+     * @param - $request
+     * 
+     * 
+     * @return 
+     * array
+     * 
+     * @author
+     * 
+     * Amjad Ali
+     * 
+     */
+
 	public function updateDetails(Request $request) {
 		$this->validator($request->all())->validate();
 		
@@ -67,6 +84,23 @@ class DoctorController extends Controller
 		return redirect(URL::previous())->with('message','Details updated successfully...!');
 	}
 
+	/*
+     * @function updateDoctorBio
+     * 
+     * update doctor bio
+     * 
+     * @param - $request
+     * 
+     * 
+     * @return 
+     * array
+     * 
+     * @author
+     * 
+     * Amjad Ali
+     * 
+     */
+
 	public function updateDoctorBio(Request $request) {
 		Validator::make(array('doctor_bio' => $request->doctor_bio),['doctor_bio' => 'required|string|max:800'])->validate();
 
@@ -74,6 +108,23 @@ class DoctorController extends Controller
 
 		return redirect(URL::previous())->with('message','Bio updated successfully...!');
 	}
+
+	/*
+     * @function addDoctorExperience
+     * 
+     * add doctor experience
+     * 
+     * @param - $request
+     * 
+     * 
+     * @return 
+     * array
+     * 
+     * @author
+     * 
+     * Amjad Ali
+     * 
+     */
 
 	public function addDoctorExperience(Request $request) {
 		Validator::make(array('role_id' => $request->role_id,'start_year' => $request->start_year,'end_year' => $request->end_year,'organisation_name' => $request->organisation_name),['role_id' => 'required','start_year' => 'required','end_year' => 'required','organisation_name' => 'required|string|max:255'])->validate();
@@ -88,6 +139,23 @@ class DoctorController extends Controller
 
         return redirect(URL::previous())->with('message','Experience added successfully...!');
 	}
+
+	/*
+     * @function deleteDoctorExperience
+     * 
+     * delete doctor experience
+     * 
+     * @param - $exp_id
+     * 
+     * 
+     * @return 
+     * array
+     * 
+     * @author
+     * 
+     * Amjad Ali
+     * 
+     */
 
 	public function deleteDoctorExperience($exp_id) {
 		if (!$exp_id) {

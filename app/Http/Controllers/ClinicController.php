@@ -35,6 +35,23 @@ class ClinicController extends Controller
         ]);
     }
 
+    /*
+     * @function addClinic
+     * 
+     * adding clinic 
+     * 
+     * @param - $request
+     * 
+     * 
+     * @return 
+     * array
+     * 
+     * @author
+     * 
+     * Amjad Ali
+     * 
+     */
+
 	public function addClinic(Request $request) {
 		$validate = $this->validator($request->all());
 		if ($validate->fails()) {
@@ -56,6 +73,23 @@ class ClinicController extends Controller
 
         return response()->json(['status' => 1, 'message' => 'Clinic added successfully']);
 	}
+
+	/*
+     * @function addClinicTiming
+     * 
+     * adding clinic timings
+     * 
+     * @param - $request
+     * 
+     * 
+     * @return 
+     * array
+     * 
+     * @author
+     * 
+     * Amjad Ali
+     * 
+     */
 
 	public function addClinicTiming(Request $request) {
 		Validator::make(array('day_id' => $request->timing_day_id,'from_time' => $request->from_time,'to_time' => $request->to_time),['day_id' => 'required','from_time' => 'required','to_time' => 'required'])->validate();
@@ -124,6 +158,23 @@ class ClinicController extends Controller
 			return redirect(URL::previous())->withErrors([$errorMessage]);
 		}
 	}
+
+	/*
+     * @function deleteClinicTimings
+     * 
+     * delete clinic timings
+     * 
+     * @param - $timing_id
+     * 
+     * 
+     * @return 
+     * array
+     * 
+     * @author
+     * 
+     * Amjad Ali
+     * 
+     */
 
 	public function deleteClinicTimings($timing_id) {
 		if (!$timing_id) {
