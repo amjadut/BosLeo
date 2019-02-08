@@ -106,7 +106,7 @@ class ClinicController extends Controller
 			$checkAppointment = DB::table('clinic_timings')
 									->join('clinics','clinic_timings.clinic_id','=','clinics.id')
 									->where('doctor_id','=',Auth::user()->id)
-									->where('day_id','=',$days)
+									// ->where('day_id','=',$days)
 									->where(function($query) use($fromTime,$toTime) {
 										$query->where(function($subQuery) use($fromTime,$toTime) {
 											$subQuery->where('from_time','>=',$fromTime);
