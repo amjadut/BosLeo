@@ -12,7 +12,9 @@
 */
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', 'HomeController@checkAuthDetails');
+    Route::get('/', function () {
+      return redirect('home');
+    });
 });
 
 // Authentication Routes

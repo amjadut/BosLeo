@@ -10,30 +10,6 @@ class HomeController extends Controller
 		$this->middleware('auth');
 	}
 
-	/*
-     * @function checkAuthDetails
-     * 
-     * redirect if authenticated
-     * 
-     * @param - null
-     * 
-     * @author
-     * 
-     * Amjad Ali
-     * 
-     */
-
-	public function checkAuthDetails() {
-        if(Auth::check()) {
-
-            return redirect('home');
-        }
-        else {
-
-            return view('auth.login');
-        }
-    }
-
     /*
      * @function dashboard
      * 
